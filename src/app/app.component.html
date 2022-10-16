@@ -1,0 +1,8 @@
+<div class="container-app">
+  <section class="result">
+    <app-result [sentence]="sentence"></app-result>
+  </section>
+  <section class="keyboard">
+    <app-keyboard (outputSentenceChangeEvent)="setOutputSentenceChangeEvent($event)"></app-keyboard>
+  </section>
+</div>

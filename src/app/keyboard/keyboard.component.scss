@@ -1,0 +1,18 @@
+.container-keyboard {
+  height: 100vh;
+  width: 100vw;
+}
+
+.container-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 44vh;
+  width: 33vw;
+  margin: 3px;
+}
+
+.icon-button {
+  height: 100px;
+  width: 100px;
+}
