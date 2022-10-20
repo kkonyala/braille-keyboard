@@ -20,8 +20,8 @@ export class FetchResultService {
       }
     }
     console.log('getTouchIdList');
-    console.log(touchIdList);
-    console.log(touchIdList.sort());
+    console.log('getTouchIdList' + touchIdList);
+    console.log('getTouchIdList sorted' + touchIdList.sort());
     return touchIdList.sort();
   }
 
@@ -36,7 +36,7 @@ export class FetchResultService {
       }
     })
     console.log('detectLetter');
-    console.log(result);
+    console.log('detectLetter' + result);
     return result;
   }
 
@@ -48,7 +48,7 @@ export class FetchResultService {
       result.push({x, y})
     }
     console.log('fetchTouchCoordinates');
-    console.log(result);
+    console.log('fetchTouchCoordinates' + result);
     return result;
   }
 
@@ -59,7 +59,7 @@ export class FetchResultService {
       result.push({x, y})
     }
     console.log('fetchSwipeTouchCoordinates');
-    console.log(result);
+    console.log('fetchSwipeTouchCoordinates' + result);
     return result;
   }
 }
