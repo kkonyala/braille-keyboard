@@ -19,6 +19,9 @@ export class FetchResultService {
         touchIdList.push(parseInt(touch.target.id[1]));
       }
     }
+    console.log('getTouchIdList');
+    console.log(touchIdList);
+    console.log(touchIdList.sort());
     return touchIdList.sort();
   }
 
@@ -32,6 +35,8 @@ export class FetchResultService {
         result = map.value;
       }
     })
+    console.log('detectLetter');
+    console.log(result);
     return result;
   }
 
@@ -42,6 +47,8 @@ export class FetchResultService {
       const {clientX: x, clientY: y} = touches[i];
       result.push({x, y})
     }
+    console.log('fetchTouchCoordinates');
+    console.log(result);
     return result;
   }
 
@@ -51,6 +58,8 @@ export class FetchResultService {
       const {x, y} = touches[i].value;
       result.push({x, y})
     }
+    console.log('fetchSwipeTouchCoordinates');
+    console.log(result);
     return result;
   }
 }
