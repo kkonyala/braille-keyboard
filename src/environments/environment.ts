@@ -5,12 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyAaNLvSc7clF6hj-69Uk6hggHUDHpDGdGA",
-    authDomain: "adv-proj-braille-keyboard.firebaseapp.com",
-    projectId: "adv-proj-braille-keyboard",
-    storageBucket: "adv-proj-braille-keyboard.appspot.com",
-    messagingSenderId: "815783736710",
-    appId: "1:815783736710:web:ff369c31332cd28174a807"
+    projectId: 'adv-proj-braille-keyboard',
+    appId: '1:815783736710:web:ff369c31332cd28174a807',
+    storageBucket: 'adv-proj-braille-keyboard.appspot.com',
+    locationId: 'us-central',
+    apiKey: 'AIzaSyAaNLvSc7clF6hj-69Uk6hggHUDHpDGdGA',
+    authDomain: 'adv-proj-braille-keyboard.firebaseapp.com',
+    messagingSenderId: '815783736710',
   }
 };
 

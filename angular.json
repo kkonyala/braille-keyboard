@@ -104,6 +104,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "braille-keyboard:build:production",
+            "firebaseProject": "adv-proj-braille-keyboard",
+            "firebaseHostingSite": "adv-proj-braille-keyboard"
+          }
         }
       }
     }

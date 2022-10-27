@@ -1,5 +1,14 @@
 {
   "projects": {
-    "default": "braille-keyboard"
+    "default": "adv-proj-braille-keyboard"
+  },
+  "targets": {
+    "adv-proj-braille-keyboard": {
+      "hosting": {
+        "braille-keyboard": [
+          "adv-proj-braille-keyboard"
+        ]
+      }
+    }
   }
 }
