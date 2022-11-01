@@ -9,7 +9,7 @@ export class FirestoreServiceService {
 
   constructor(private angularFirestore: AngularFirestore) { }
 
-  insertRecord(firestoreData: FirestoreData){
+  insertRecord(firestoreData: any){
     return new Promise<any>((resolve, reject) =>{
       this.angularFirestore
         .collection('usage-logs')

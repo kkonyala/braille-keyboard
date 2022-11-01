@@ -1,6 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FetchResultService} from "../services/data/fetch-result.service";
-import {SwipeDetectorService} from "../services/swipe/swipe-detector.service";
+import { Component, EventEmitter, OnInit, Output, HostListener } from '@angular/core';
+import { FetchResultService } from "../services/data/fetch-result.service";
+import { SwipeDetectorService } from "../services/swipe/swipe-detector.service";
+import { FirestoreServiceService } from '../services/firestore/firestore-service.service';
 
 @Component({
   selector: 'app-keyboard',
@@ -13,8 +14,10 @@ export class KeyboardComponent implements OnInit {
   swipeTouches: any;
   result: any;
   sentence: string;
+  windowHeight: any;
+  windowWidth: any;
 
-  constructor(private fetchResultService: FetchResultService, private swipeDetectorService: SwipeDetectorService) {
+  constructor(private fetchResultService: FetchResultService, private swipeDetectorService: SwipeDetectorService, private firestoreService: FirestoreServiceService) {
     this.touches = [];
     this.swipeTouches = [];
     this.result = [];
@@ -22,6 +25,14 @@ export class KeyboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.windowHeight = window.innerHeight;
+    this.windowWidth = window.innerWidth;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  resizeWindow() {
+    this.windowHeight = window.innerHeight;
+    this.windowWidth = window.innerWidth;
   }
 
   onTouchStart($event: TouchEvent) {
@@ -31,9 +42,9 @@ export class KeyboardComponent implements OnInit {
 
   onSwipe($event: TouchEvent) {
     $event.preventDefault();
-    const {touches, timeStamp} = $event;
-    const value = {x: touches[0].clientX, y: touches[0].clientY};
-    this.swipeTouches.push({value, timeStamp});
+    const { touches, timeStamp } = $event;
+    const value = { x: touches[0].clientX, y: touches[0].clientY };
+    this.swipeTouches.push({ value, timeStamp });
   }
 
   onTouchEnd() {
@@ -84,7 +95,20 @@ export class KeyboardComponent implements OnInit {
   }
 
   private setResult(touches: any, value: any, touchType: any) {
-    this.result.push({touches, value, touchType});
+    const singleResult = { 
+      touches, 
+      value, 
+      touchType, 
+      screenHeight: this.windowHeight, 
+      screenWidth: this.windowWidth, 
+      dateTime: new Date().toLocaleString('en-US', { timeZone: 'America/New_York', timeZoneName: 'shortGeneric' }),
+      session_id: "abc123" //TODO: Update session_id to UUID
+    };
+
+    this.result.push(singleResult);
+    this.firestoreService.insertRecord(singleResult);
+    console.log('Data sent to Firebase');
+
   }
 
   unsetTouches() {
