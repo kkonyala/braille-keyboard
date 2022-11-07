@@ -95,14 +95,26 @@ export class KeyboardComponent implements OnInit {
   }
 
   private setResult(touches: any, value: any, touchType: any) {
-    const singleResult = { 
-      touches, 
-      value, 
-      touchType, 
-      screenHeight: this.windowHeight, 
-      screenWidth: this.windowWidth, 
+
+    var session_data = sessionStorage.getItem('session_id');
+
+    if (session_data === null) {
+      console.log('no session value found');
+      var session_id_val = crypto.randomUUID();
+      sessionStorage.setItem('session_id', session_id_val);
+      console.log('session value set to', session_id_val);
+    } else {
+      console.log('found session value', session_data);
+    }
+
+    const singleResult = {
+      touches,
+      value,
+      touchType,
+      screenHeight: this.windowHeight,
+      screenWidth: this.windowWidth,
       dateTime: new Date().toLocaleString('en-US', { timeZone: 'America/New_York', timeZoneName: 'shortGeneric' }),
-      session_id: "abc123" //TODO: Update session_id to UUID
+      session_id: sessionStorage.getItem('session_id')
     };
 
     this.result.push(singleResult);
