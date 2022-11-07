@@ -107,13 +107,16 @@ export class KeyboardComponent implements OnInit {
       console.log('found session value', session_data);
     }
 
+    var currentDT = new Date();
+
     const singleResult = {
       touches,
       value,
       touchType,
       screenHeight: this.windowHeight,
       screenWidth: this.windowWidth,
-      dateTime: new Date().toLocaleString('en-US', { timeZone: 'America/New_York', timeZoneName: 'shortGeneric' }),
+      dateTime: currentDT.toLocaleString('en-US', { timeZone: 'America/New_York', timeZoneName: 'shortGeneric' }),
+      DTinMilliseconds: currentDT.getTime(),
       session_id: sessionStorage.getItem('session_id')
     };
 
