@@ -45,7 +45,8 @@ export class KeyboardComponent implements OnInit {
       dateTime: dateTime,
       DTinMilliseconds: DTinMilliseconds,
       session_id: session_id,
-      eventType: 'onTouchStart'
+      eventType: 'onTouchStart',
+      touches: this.fetchResultService.fetchTouchCoordinates(this.touches)
     };
 
     this.result.push(singleResult);
@@ -63,7 +64,8 @@ export class KeyboardComponent implements OnInit {
       dateTime: dateTime,
       DTinMilliseconds: DTinMilliseconds,
       session_id: session_id,
-      eventType: 'onSwipe'
+      eventType: 'onSwipe',
+      swipeTouches: this.fetchResultService.fetchSwipeTouchCoordinates(this.swipeTouches)
     };
 
     this.result.push(singleResult);
