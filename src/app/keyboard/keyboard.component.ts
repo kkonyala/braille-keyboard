@@ -39,6 +39,17 @@ export class KeyboardComponent implements OnInit {
   onTouchStart($event: TouchEvent) {
     $event.preventDefault();
     this.touches = $event.touches;
+
+    let [session_id, dateTime, DTinMilliseconds] = this.getSessionAndDT();
+    const singleResult = {
+      dateTime: dateTime,
+      DTinMilliseconds: DTinMilliseconds,
+      session_id: session_id,
+      eventType: 'onTouchStart'
+    };
+
+    this.result.push(singleResult);
+    this.firestoreService.insertRecord(singleResult);
   }
 
   onSwipe($event: TouchEvent) {
@@ -46,6 +57,17 @@ export class KeyboardComponent implements OnInit {
     const { touches, timeStamp } = $event;
     const value = { x: touches[0].clientX, y: touches[0].clientY };
     this.swipeTouches.push({ value, timeStamp });
+
+    let [session_id, dateTime, DTinMilliseconds] = this.getSessionAndDT();
+    const singleResult = {
+      dateTime: dateTime,
+      DTinMilliseconds: DTinMilliseconds,
+      session_id: session_id,
+      eventType: 'onSwipe'
+    };
+
+    this.result.push(singleResult);
+    this.firestoreService.insertRecord(singleResult);
   }
 
   onTouchEnd() {
@@ -68,6 +90,17 @@ export class KeyboardComponent implements OnInit {
     this.unsetTouches();
     this.outputSentenceChangeEvent.emit(this.sentence);
     console.log('result:', this.result);
+
+    let [session_id, dateTime, DTinMilliseconds] = this.getSessionAndDT();
+    const singleResult = {
+      dateTime: dateTime,
+      DTinMilliseconds: DTinMilliseconds,
+      session_id: session_id,
+      eventType: 'onTouchEnd'
+    };
+
+    this.result.push(singleResult);
+    this.firestoreService.insertRecord(singleResult);
   }
 
   private addLetter(letter: string) {
@@ -130,7 +163,8 @@ export class KeyboardComponent implements OnInit {
       screenWidth: this.windowWidth,
       dateTime: dateTime,
       DTinMilliseconds: DTinMilliseconds,
-      session_id: session_id
+      session_id: session_id,
+      eventType: 'setResult'
     };
 
     this.result.push(singleResult);
