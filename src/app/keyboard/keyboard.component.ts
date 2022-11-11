@@ -59,17 +59,17 @@ export class KeyboardComponent implements OnInit {
     const value = { x: touches[0].clientX, y: touches[0].clientY };
     this.swipeTouches.push({ value, timeStamp });
 
-    let [session_id, dateTime, DTinMilliseconds] = this.getSessionAndDT();
-    const singleResult = {
-      dateTime: dateTime,
-      DTinMilliseconds: DTinMilliseconds,
-      session_id: session_id,
-      eventType: 'onSwipe',
-      swipeTouches: this.fetchResultService.fetchSwipeTouchCoordinates(this.swipeTouches)
-    };
+    // let [session_id, dateTime, DTinMilliseconds] = this.getSessionAndDT();
+    // const singleResult = {
+    //   dateTime: dateTime,
+    //   DTinMilliseconds: DTinMilliseconds,
+    //   session_id: session_id,
+    //   eventType: 'onSwipe',
+    //   swipeTouches: this.fetchResultService.fetchSwipeTouchCoordinates(this.swipeTouches)
+    // };
 
-    this.result.push(singleResult);
-    this.firestoreService.insertRecord(singleResult);
+    // this.result.push(singleResult);
+    // this.firestoreService.insertRecord(singleResult);
   }
 
   onTouchEnd() {
