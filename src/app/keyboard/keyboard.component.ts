@@ -94,8 +94,7 @@ export class KeyboardComponent implements OnInit {
     this.sentence += ' ';
   }
 
-  private setResult(touches: any, value: any, touchType: any) {
-
+  private getSessionAndDT() {
     var session_data = sessionStorage.getItem('session_id');
 
     if (session_data === null) {
@@ -109,15 +108,28 @@ export class KeyboardComponent implements OnInit {
 
     var currentDT = new Date();
 
+    var session_id = sessionStorage.getItem('session_id');
+    var dateTime = currentDT.toLocaleString('en-US', { timeZone: 'America/New_York', timeZoneName: 'shortGeneric' });
+    console.log('datetime:', dateTime);
+    var DTinMilliseconds = currentDT.getTime();
+
+    return [session_id, dateTime, DTinMilliseconds];
+
+  }
+
+  private setResult(touches: any, value: any, touchType: any) {
+
+    let [session_id, dateTime, DTinMilliseconds] = this.getSessionAndDT();
+    
     const singleResult = {
       touches,
       value,
       touchType,
       screenHeight: this.windowHeight,
       screenWidth: this.windowWidth,
-      dateTime: currentDT.toLocaleString('en-US', { timeZone: 'America/New_York', timeZoneName: 'shortGeneric' }),
-      DTinMilliseconds: currentDT.getTime(),
-      session_id: sessionStorage.getItem('session_id')
+      dateTime: dateTime,
+      DTinMilliseconds: DTinMilliseconds,
+      session_id: session_id
     };
 
     this.result.push(singleResult);
