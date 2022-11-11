@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output, HostListener } from '@angular/
 import { FetchResultService } from "../services/data/fetch-result.service";
 import { SwipeDetectorService } from "../services/swipe/swipe-detector.service";
 import { FirestoreServiceService } from '../services/firestore/firestore-service.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-keyboard',
@@ -109,8 +110,8 @@ export class KeyboardComponent implements OnInit {
     var currentDT = new Date();
 
     var session_id = sessionStorage.getItem('session_id');
-    var dateTime = currentDT.toLocaleString('en-US', { timeZone: 'America/New_York', timeZoneName: 'shortGeneric' });
-    console.log('datetime:', dateTime);
+    // var dateTime = currentDT.toLocaleString('en-US', { timeZone: 'America/New_York', timeZoneName: 'shortGeneric' });
+    var dateTime = formatDate(currentDT, 'yyyy-MM-dd HH:mm:ss', 'en-US', 'EST')
     var DTinMilliseconds = currentDT.getTime();
 
     return [session_id, dateTime, DTinMilliseconds];
