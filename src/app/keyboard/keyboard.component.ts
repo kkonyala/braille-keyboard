@@ -166,12 +166,13 @@ export class KeyboardComponent implements OnInit {
       dateTime: dateTime,
       DTinMilliseconds: DTinMilliseconds,
       session_id: session_id,
-      eventType: 'setResult'
+      eventType: 'setResult',
+      previousSentence: this.sentence
     };
 
     this.result.push(singleResult);
     this.firestoreService.insertRecord(singleResult);
-    console.log('Data sent to Firebase');
+    console.log('Data sent to Firebase', singleResult);
 
   }
 
