@@ -46,7 +46,7 @@ export class KeyboardComponent implements OnInit {
       DTinMilliseconds: DTinMilliseconds,
       session_id: session_id,
       eventType: 'onTouchStart',
-      touches: this.fetchResultService.fetchTouchCoordinates(this.touches)
+      touches: this.fetchResultService.fetchTouchCoordinates(this.touches).slice(-1)
     };
 
     this.result.push(singleResult);
