@@ -40,11 +40,11 @@ export class KeyboardComponent implements OnInit {
     $event.preventDefault();
     this.touches = $event.touches;
 
-    let [session_id, dateTime, DTinMilliseconds] = this.getSessionAndDT();
+    let [sessionId, dateTime, DTinMilliseconds] = this.getSessionAndDT();
     const singleResult = {
       dateTime: dateTime,
       DTinMilliseconds: DTinMilliseconds,
-      session_id: session_id,
+      sessionId: sessionId,
       eventType: 'onTouchStart',
       touches: this.fetchResultService.fetchTouchCoordinates(this.touches)
     };
@@ -59,11 +59,11 @@ export class KeyboardComponent implements OnInit {
     const value = { x: touches[0].clientX, y: touches[0].clientY };
     this.swipeTouches.push({ value, timeStamp });
 
-    // let [session_id, dateTime, DTinMilliseconds] = this.getSessionAndDT();
+    // let [sessionId, dateTime, DTinMilliseconds] = this.getSessionAndDT();
     // const singleResult = {
     //   dateTime: dateTime,
     //   DTinMilliseconds: DTinMilliseconds,
-    //   session_id: session_id,
+    //   sessionId: sessionId,
     //   eventType: 'onSwipe',
     //   swipeTouches: this.fetchResultService.fetchSwipeTouchCoordinates(this.swipeTouches)
     // };
@@ -93,11 +93,11 @@ export class KeyboardComponent implements OnInit {
     this.outputSentenceChangeEvent.emit(this.sentence);
     console.log('result:', this.result);
 
-    let [session_id, dateTime, DTinMilliseconds] = this.getSessionAndDT();
+    let [sessionId, dateTime, DTinMilliseconds] = this.getSessionAndDT();
     const singleResult = {
       dateTime: dateTime,
       DTinMilliseconds: DTinMilliseconds,
-      session_id: session_id,
+      sessionId: sessionId,
       eventType: 'onTouchEnd'
     };
 
@@ -131,31 +131,31 @@ export class KeyboardComponent implements OnInit {
   }
 
   private getSessionAndDT() {
-    var session_data = sessionStorage.getItem('session_id');
+    var session_data = sessionStorage.getItem('sessionId');
 
     if (session_data === null) {
       console.log('no session value found');
-      var session_id_val = crypto.randomUUID();
-      sessionStorage.setItem('session_id', session_id_val);
-      console.log('session value set to', session_id_val);
+      var sessionId_val = crypto.randomUUID();
+      sessionStorage.setItem('sessionId', sessionId_val);
+      console.log('session value set to', sessionId_val);
     } else {
       console.log('found session value', session_data);
     }
 
     var currentDT = new Date();
 
-    var session_id = sessionStorage.getItem('session_id');
+    var sessionId = sessionStorage.getItem('sessionId');
     // var dateTime = currentDT.toLocaleString('en-US', { timeZone: 'America/New_York', timeZoneName: 'shortGeneric' });
     var dateTime = formatDate(currentDT, 'yyyy-MM-dd HH:mm:ss', 'en-US', 'EST')
     var DTinMilliseconds = currentDT.getTime();
 
-    return [session_id, dateTime, DTinMilliseconds];
+    return [sessionId, dateTime, DTinMilliseconds];
 
   }
 
   private setResult(touches: any, value: any, touchType: any) {
 
-    let [session_id, dateTime, DTinMilliseconds] = this.getSessionAndDT();
+    let [sessionId, dateTime, DTinMilliseconds] = this.getSessionAndDT();
     
     const singleResult = {
       touches,
@@ -165,7 +165,7 @@ export class KeyboardComponent implements OnInit {
       screenWidth: this.windowWidth,
       dateTime: dateTime,
       DTinMilliseconds: DTinMilliseconds,
-      session_id: session_id,
+      sessionId: sessionId,
       eventType: 'setResult',
       previousSentence: this.sentence
     };

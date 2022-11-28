@@ -45,7 +45,7 @@ export class FetchResultService {
 
     for (let i = 0; i < touches.length; i++) {
       const {clientX: x, clientY: y} = touches[i];
-      result.push({x, y})
+      result.push({x, y, touchId: crypto.randomUUID()})
     }
     console.log('fetchTouchCoordinates');
     console.log('fetchTouchCoordinates', result);
