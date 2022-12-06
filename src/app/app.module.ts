@@ -7,7 +7,6 @@ import { environment } from '../environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ResultComponent } from './result/result.component';
 import { KeyboardComponent } from './keyboard/keyboard.component';
-import { ModalConfirmSendDataComponent } from './modal-confirm-send-data/modal-confirm-send-data.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideDatabase, getDatabase } from '@angular/fire/database';
@@ -18,8 +17,7 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
   declarations: [
     AppComponent,
     ResultComponent,
-    KeyboardComponent,
-    ModalConfirmSendDataComponent
+    KeyboardComponent
   ],
   imports: [
     BrowserModule,

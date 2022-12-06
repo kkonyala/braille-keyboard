@@ -1,6 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges, HostListener } from '@angular/core';
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { ModalConfirmSendDataComponent } from "../modal-confirm-send-data/modal-confirm-send-data.component";
 import { FirestoreServiceService } from '../services/firestore/firestore-service.service';
 
 @Component({
@@ -40,7 +39,5 @@ export class ResultComponent implements OnInit, OnChanges {
       screenWidth: this.windowWidth
     });
     console.log('Data sent');
-
-    // this.modalService.open(ModalConfirmSendDataComponent, { centered: true });
   }
 }
