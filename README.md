@@ -1,7 +1,6 @@
 # BrailleKeyboard
 
-[![Github Pages Deploy](https://github.com/jimit105/braille-keyboard/actions/workflows/deploy-app.yml/badge.svg)](https://github.com/jimit105/braille-keyboard/actions/workflows/deploy-app.yml)
-[![pages-build-deployment](https://github.com/jimit105/braille-keyboard/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/jimit105/braille-keyboard/actions/workflows/pages/pages-build-deployment)
+[![Github Pages Deploy](https://github.com/SUNY-Dan/braille-keyboard/actions/workflows/deploy-app.yml/badge.svg)](https://github.com/SUNY-Dan/braille-keyboard/actions/workflows/deploy-app.yml)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
 
