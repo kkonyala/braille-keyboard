@@ -2,6 +2,8 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// Configuration values for the firebase.
+// Get these values from 'Project Settings' in firebase application
 export const environment = {
   production: false,
   firebase: {

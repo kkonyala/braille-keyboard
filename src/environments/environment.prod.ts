@@ -1,3 +1,5 @@
+// Configuration values for the firebase.
+// Get these values from 'Project Settings' in firebase application
 export const environment = {
   firebase: {
     projectId: 'adv-proj-braille-keyboard',

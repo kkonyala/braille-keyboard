@@ -25,11 +25,13 @@ export class KeyboardComponent implements OnInit {
     this.sentence = '';
   }
 
+  // Get the initial screen size
   ngOnInit(): void {
     this.windowHeight = window.innerHeight;
     this.windowWidth = window.innerWidth;
   }
 
+  // Update the screen size on screen resize event
   @HostListener('window:resize', ['$event'])
   resizeWindow() {
     this.windowHeight = window.innerHeight;
@@ -52,6 +54,8 @@ export class KeyboardComponent implements OnInit {
     };
 
     this.result.push(singleResult);
+
+    // Capture the record on touchstart events in the firestore database
     this.firestoreService.insertRecord(singleResult);
   }
 
@@ -60,6 +64,8 @@ export class KeyboardComponent implements OnInit {
     const { touches, timeStamp } = $event;
     const value = { x: touches[0].clientX, y: touches[0].clientY };
     this.swipeTouches.push({ value, timeStamp });
+
+    // Uncomment the below code to enable capturing events on swipe
 
     // let [sessionId, dateTime, DTinMilliseconds] = this.getSessionAndDT();
     // const singleResult = {
@@ -71,6 +77,8 @@ export class KeyboardComponent implements OnInit {
     // };
 
     // this.result.push(singleResult);
+
+    // Capture the record on swipe events in the firestore database
     // this.firestoreService.insertRecord(singleResult);
   }
 
@@ -104,6 +112,8 @@ export class KeyboardComponent implements OnInit {
     };
 
     this.result.push(singleResult);
+
+    // Capture the record on touchend events in the firestore database
     this.firestoreService.insertRecord(singleResult);
   }
 
@@ -135,6 +145,9 @@ export class KeyboardComponent implements OnInit {
   private getSessionAndDT() {
     var session_data = sessionStorage.getItem('sessionId');
 
+    // Get the sessionId from browser's session storage
+    // If the value is present, then use that value
+    // Else (for the initial page visit), generate a UUID and assign it to sessionId
     if (session_data === null) {
       console.log('no session value found');
       var sessionId_val = crypto.randomUUID();
@@ -147,6 +160,8 @@ export class KeyboardComponent implements OnInit {
     var currentDT = new Date();
 
     var sessionId = sessionStorage.getItem('sessionId');
+
+    // Convert datetime format
     // var dateTime = currentDT.toLocaleString('en-US', { timeZone: 'America/New_York', timeZoneName: 'shortGeneric' });
     var dateTime = formatDate(currentDT, 'yyyy-MM-dd HH:mm:ss', 'en-US', 'EST')
     var DTinMilliseconds = currentDT.getTime();
@@ -173,6 +188,8 @@ export class KeyboardComponent implements OnInit {
     };
 
     this.result.push(singleResult);
+
+    // Capture the result in the firestore database
     this.firestoreService.insertRecord(singleResult);
     console.log('Data sent to Firebase', singleResult);
 
