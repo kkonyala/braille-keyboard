@@ -57,6 +57,13 @@ export class KeyboardComponent implements OnInit {
 
     // Capture the record on touchstart events in the firestore database
     this.firestoreService.insertRecord(singleResult);
+
+    for (const touch of touches) {
+      if (touch.target.id) {
+        var img="assets/keyboard/icons-button/2.png";
+        document.getElementById(touch.target.id).src=img;
+      }
+    }
   }
 
   onSwipe($event: TouchEvent) {
@@ -115,6 +122,13 @@ export class KeyboardComponent implements OnInit {
 
     // Capture the record on touchend events in the firestore database
     this.firestoreService.insertRecord(singleResult);
+
+    for (const touch of touches) {
+      if (touch.target.id) {
+        var img="assets/keyboard/icons-button/"+parseInt(touch.target.id[1])+ ".png";
+        document.getElementById(touch.target.id).src=img;
+      }
+    }
   }
 
   private addLetter(letter: string) {
@@ -173,7 +187,7 @@ export class KeyboardComponent implements OnInit {
   private setResult(touches: any, value: any, touchType: any) {
 
     let [sessionId, dateTime, DTinMilliseconds] = this.getSessionAndDT();
-    
+
     const singleResult = {
       touches,
       value,
