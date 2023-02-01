@@ -1,3 +1,23 @@
+<style>
+    .showInput {
+        position:absolute;
+        height:100px;
+        width:100px;
+        border: none;
+        left: 40%;
+        top: 45%;
+        font-size:70px;
+        text-align: center;
+        z-index: 100;
+        display:none;
+        background: rgba(255, 255, 255, 1);
+    }
+    .animatee {
+       opacity: 0 !important;
+       transition: opacity 1.60s ease 0s;
+     }
+</style>
+
 <div class="container-keyboard" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd()"
     (touchmove)="onSwipe($event)">
 
@@ -24,5 +44,7 @@
             <img id="i1" class="icon-button" src="assets/keyboard/icons-button/1.png" alt="1">
         </div>
     </div>
-
+    <div class="showInput" id="showInput" role="textbox" aria-label="just typed letter">
+    </div>
 </div>
+

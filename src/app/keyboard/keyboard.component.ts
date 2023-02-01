@@ -65,6 +65,10 @@ export class KeyboardComponent implements OnInit {
         document.getElementById("i"+parseInt(touch.target.id[1]))!.setAttribute( 'src', img);
       }
     }
+    let m = document.getElementById('showInput');
+    m!.textContent='';
+    m!.style.display = 'none';
+    m!.classList.remove("animatee");
   }
 
   onSwipe($event: TouchEvent) {
@@ -92,6 +96,13 @@ export class KeyboardComponent implements OnInit {
 
   onTouchEnd() {
     const letter = this.fetchResultService.detectLetter(this.touches);
+    let m = document.getElementById('showInput');
+    m!.textContent=letter;
+    m!.style.transform = 'rotate(90deg)';
+    m!.style.display = 'block';
+    setTimeout(function() {
+      m!.classList.add("animatee");
+    }, 300);
 
     for (const touch of this.touches) {
       if (touch.target.id) {
@@ -130,7 +141,7 @@ export class KeyboardComponent implements OnInit {
 
     // Capture the record on touchend events in the firestore database
     this.firestoreService.insertRecord(singleResult);
-
+ 
   }
 
   private addLetter(letter: string) {
