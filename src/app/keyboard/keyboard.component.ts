@@ -61,7 +61,7 @@ export class KeyboardComponent implements OnInit {
     for (const touch of this.touches) {
       if (touch.target.id) {
         //var img="assets/keyboard/icons-button/"+"p"+parseInt(touch.target.id[1])+ ".png";
-        var img="assets/keyboard/icons-button/"+ "3.png";
+        var img="assets/keyboard/icons-button/p"+ parseInt(touch.target.id[1]) +".png";
         document.getElementById("i"+parseInt(touch.target.id[1]))!.setAttribute( 'src', img);
       }
     }
@@ -96,7 +96,6 @@ export class KeyboardComponent implements OnInit {
     for (const touch of this.touches) {
       if (touch.target.id) {
         var img="assets/keyboard/icons-button/"+parseInt(touch.target.id[1])+ ".png";
-        console.log('111111111', img);
         document.getElementById("i"+parseInt(touch.target.id[1]))!.setAttribute( 'src', img);
       }
     }
