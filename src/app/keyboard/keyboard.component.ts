@@ -58,11 +58,11 @@ export class KeyboardComponent implements OnInit {
     // Capture the record on touchstart events in the firestore database
     this.firestoreService.insertRecord(singleResult);
 
-    for (const touch of touches) {
+    for (const touch of this.touches) {
       if (touch.target.id) {
         //var img="assets/keyboard/icons-button/"+"p"+parseInt(touch.target.id[1])+ ".png";
-        var img="assets/keyboard/icons-button/"+ "1.png";
-        document.getElementById(touch.target.id).src=img;
+        var img="assets/keyboard/icons-button/"+ "3.png";
+        document.getElementById("i"+parseInt(touch.target.id[1]))!.setAttribute( 'src', img);
       }
     }
   }
@@ -93,6 +93,14 @@ export class KeyboardComponent implements OnInit {
   onTouchEnd() {
     const letter = this.fetchResultService.detectLetter(this.touches);
 
+    for (const touch of this.touches) {
+      if (touch.target.id) {
+        var img="assets/keyboard/icons-button/"+parseInt(touch.target.id[1])+ ".png";
+        console.log('111111111', img);
+        document.getElementById("i"+parseInt(touch.target.id[1]))!.setAttribute( 'src', img);
+      }
+    }
+    
     if (letter) {
       this.addLetter(letter);
     }
@@ -124,12 +132,6 @@ export class KeyboardComponent implements OnInit {
     // Capture the record on touchend events in the firestore database
     this.firestoreService.insertRecord(singleResult);
 
-    for (const touch of touches) {
-      if (touch.target.id) {
-        var img="assets/keyboard/icons-button/"+parseInt(touch.target.id[1])+ ".png";
-        document.getElementById(touch.target.id).src=img;
-      }
-    }
   }
 
   private addLetter(letter: string) {
