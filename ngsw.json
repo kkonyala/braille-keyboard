@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1675235149206,
+  "timestamp": 1675237364761,
   "index": "/braille-keyboard/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/braille-keyboard/favicon.ico",
         "/braille-keyboard/index.html",
-        "/braille-keyboard/main.437ddecbcb5c457c.js",
+        "/braille-keyboard/main.25046853a3ec04f0.js",
         "/braille-keyboard/manifest.webmanifest",
         "/braille-keyboard/polyfills.b0733a8d2887116c.js",
         "/braille-keyboard/runtime.d694fb26ac79cacb.js",
@@ -46,7 +46,13 @@
         "/braille-keyboard/assets/keyboard/icons-button/4.png",
         "/braille-keyboard/assets/keyboard/icons-button/5.png",
         "/braille-keyboard/assets/keyboard/icons-button/6.png",
-        "/braille-keyboard/assets/keyboard/icons-button/desktop.ini"
+        "/braille-keyboard/assets/keyboard/icons-button/desktop.ini",
+        "/braille-keyboard/assets/keyboard/icons-button/p1.png",
+        "/braille-keyboard/assets/keyboard/icons-button/p2.png",
+        "/braille-keyboard/assets/keyboard/icons-button/p3.png",
+        "/braille-keyboard/assets/keyboard/icons-button/p4.png",
+        "/braille-keyboard/assets/keyboard/icons-button/p5.png",
+        "/braille-keyboard/assets/keyboard/icons-button/p6.png"
       ],
       "patterns": []
     }
@@ -71,9 +77,15 @@
     "/braille-keyboard/assets/keyboard/icons-button/5.png": "b6dae7270bcf3c22aadb83878b48de96b847c304",
     "/braille-keyboard/assets/keyboard/icons-button/6.png": "571cafdc04cd1f2dc44e39640e1a35adfd7cf615",
     "/braille-keyboard/assets/keyboard/icons-button/desktop.ini": "5c87a38af38d635d18a0be734cb350af479d2ad7",
+    "/braille-keyboard/assets/keyboard/icons-button/p1.png": "53b670dbaa4c23251f5bef6676be2f0b2790c4df",
+    "/braille-keyboard/assets/keyboard/icons-button/p2.png": "98f27ce1389b7025319448812f823371298fca9b",
+    "/braille-keyboard/assets/keyboard/icons-button/p3.png": "735cecee68ebdecab85b8175d1462930870a00d2",
+    "/braille-keyboard/assets/keyboard/icons-button/p4.png": "fb07e1036a26f18431174ea5502b13cb0f15d58c",
+    "/braille-keyboard/assets/keyboard/icons-button/p5.png": "b74917d5948722f499952141b6315bd6860ace35",
+    "/braille-keyboard/assets/keyboard/icons-button/p6.png": "4f345844c6a9ac1caaab7b90c07f21914039b115",
     "/braille-keyboard/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/braille-keyboard/index.html": "ea1ef717e6b5a78b1e4d76952e0f8b03f7559ed9",
-    "/braille-keyboard/main.437ddecbcb5c457c.js": "8e3508d6b271be4c5282dce31304dd8d621a0b54",
+    "/braille-keyboard/index.html": "21d24a9803a1a75f3f94f96114191670f6b7b4e0",
+    "/braille-keyboard/main.25046853a3ec04f0.js": "4313051511c6921754e51e3d2f67479be677aa63",
     "/braille-keyboard/manifest.webmanifest": "fa08f4244df6f4ebb6ff7de444ad3d55a7f03b56",
     "/braille-keyboard/polyfills.b0733a8d2887116c.js": "2a5c474a075392951e1635e46c0be2ec3a331402",
     "/braille-keyboard/runtime.d694fb26ac79cacb.js": "75d526a8911c3d3abaa60521ba20b1a0ac4219c1",
