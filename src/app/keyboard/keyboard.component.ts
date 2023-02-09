@@ -103,6 +103,7 @@ export class KeyboardComponent implements OnInit {
     setTimeout(function() {
       m!.classList.add("animatee");
     }, 300);
+    
 
     for (const touch of this.touches) {
       if (touch.target.id) {
@@ -113,6 +114,7 @@ export class KeyboardComponent implements OnInit {
     
     if (letter) {
       this.addLetter(letter);
+      this.voiceContent(letter);
     }
 
     const isSwipedDown = this.swipeDetectorService.detectSwipeDown(this.swipeTouches);
@@ -226,4 +228,14 @@ export class KeyboardComponent implements OnInit {
     this.touches = [];
     this.swipeTouches = [];
   }
+
+  private voiceContent(content: string){
+    if ('speechSynthesis' in window) {  
+        var msg = new SpeechSynthesisUtterance();           
+        window.speechSynthesis.speak(msg);
+    }else{
+        alert("Sorry, your browser doesn't support text to speech!");
+    }
+}
+
 }
