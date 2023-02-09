@@ -230,8 +230,10 @@ export class KeyboardComponent implements OnInit {
   }
 
   private voiceContent(content: string){
-    if ('speechSynthesis' in window) {  
-        var msg = new SpeechSynthesisUtterance();           
+    
+    if ('speechSynthesis' in window) {
+        var msg = new SpeechSynthesisUtterance();    
+        msg.text = content;       
         window.speechSynthesis.speak(msg);
     }else{
         alert("Sorry, your browser doesn't support text to speech!");
